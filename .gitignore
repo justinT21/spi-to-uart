@@ -1,0 +1,24 @@
+# Ignore Vivado temporary and log files
+*.jou
+*.log
+*.str
+*.pb
+*.wdb
+*.wcfg
+
+# Ignore Vivado generated directories
+.Xil/
+.ip_user_files/
+*/project_*/       # Assuming you name your build folder project_something
+work/              # Ignore the entire working directory where the .xpr lives
+
+# Ignore Hardware and Simulation caches
+*.cache/
+*.hw/
+*.sim/
+*.runs/
+
+# Ignore Bitstreams and Probes (Unless you specifically want release artifacts tracked)
+*.bit
+*.ltx
+*.bin
