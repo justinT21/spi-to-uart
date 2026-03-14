@@ -9,8 +9,8 @@
 # Ignore Vivado generated directories
 .Xil/
 .ip_user_files/
-*/project_*/       # Assuming you name your build folder project_something
-work/              # Ignore the entire working directory where the .xpr lives
+*/project_*/
+work/
 
 # Ignore Hardware and Simulation caches
 *.cache/
