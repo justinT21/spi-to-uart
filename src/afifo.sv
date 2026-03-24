@@ -1,3 +1,5 @@
+`timescale 1ns/1ps
+
 module afifo #(
     parameter int DATA_WIDTH   = 32,
     parameter int BUFFER_WIDTH = 10
@@ -13,12 +15,13 @@ module afifo #(
     output logic [DATA_WIDTH-1:0] rdata_o,
     output logic rempty_o
 );
-  logic [BUFFER_WIDTH:0] rgray_q1, rgray_q2, rgray, rbin;
-  logic [BUFFER_WIDTH:0] wgray_q1, wgray_q2, wgray, wbin;
+  (* ASYNC_REG = "TRUE" *) logic [BUFFER_WIDTH:0] rgray_q1, rgray_q2;
+  (* ASYNC_REG = "TRUE" *) logic [BUFFER_WIDTH:0] wgray_q1, wgray_q2;
+  logic [BUFFER_WIDTH:0] rgray, rbin;
+  logic [BUFFER_WIDTH:0] wgray, wbin;
 
   wire [BUFFER_WIDTH-1:0] waddr, raddr;
 
-  (* ram_style = "block" *)
   logic [DATA_WIDTH-1:0] mem[1<<BUFFER_WIDTH];
 
   wire [BUFFER_WIDTH:0] wbin_next, wgray_next;
