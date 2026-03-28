@@ -4,12 +4,10 @@
 ## - rename the used ports (in each line, after get_ports) according to the top level signal names in the project
 
 ## Clock signal
-set_property -dict { PACKAGE_PIN W5   IOSTANDARD LVCMOS33 } [get_ports board_clk_100M]
+set_property -dict {PACKAGE_PIN W5 IOSTANDARD LVCMOS33} [get_ports board_clk_100M]
 # create_clock -add -name sys_clk_pin -period 10.00 -waveform {0 5} [get_ports board_clk_100M]
 # ignore timing here since we deal with it
-set_clock_groups -asynchronous \
-  -group [get_clocks -of_objects [get_nets clk_100M]] \
-  -group [get_clocks -of_objects [get_nets clk_11_52M]]
+set_clock_groups -asynchronous -group [get_clocks -of_objects [get_nets clk_100M]] -group [get_clocks -of_objects [get_nets clk_11_52M]]
 
 ## Switches
 #set_property -dict { PACKAGE_PIN V17   IOSTANDARD LVCMOS33 } [get_ports {sw[0]}]
@@ -31,8 +29,8 @@ set_clock_groups -asynchronous \
 
 
 ## LEDs
-set_property -dict { PACKAGE_PIN U16   IOSTANDARD LVCMOS33 } [get_ports led_fifo_full]
-set_property -dict { PACKAGE_PIN E19   IOSTANDARD LVCMOS33 } [get_ports led_fifo_empty]
+set_property -dict {PACKAGE_PIN U16 IOSTANDARD LVCMOS33} [get_ports led_fifo_full]
+set_property -dict {PACKAGE_PIN E19 IOSTANDARD LVCMOS33} [get_ports led_fifo_empty]
 #set_property -dict { PACKAGE_PIN U19   IOSTANDARD LVCMOS33 } [get_ports {led[2]}]
 #set_property -dict { PACKAGE_PIN V19   IOSTANDARD LVCMOS33 } [get_ports {led[3]}]
 #set_property -dict { PACKAGE_PIN W18   IOSTANDARD LVCMOS33 } [get_ports {led[4]}]
@@ -70,22 +68,22 @@ set_property -dict { PACKAGE_PIN E19   IOSTANDARD LVCMOS33 } [get_ports led_fifo
 #set_property -dict { PACKAGE_PIN U18   IOSTANDARD LVCMOS33 } [get_ports btnC]
 #set_property -dict { PACKAGE_PIN T18   IOSTANDARD LVCMOS33 } [get_ports btnU]
 #set_property -dict { PACKAGE_PIN W19   IOSTANDARD LVCMOS33 } [get_ports btnL]
-set_property -dict { PACKAGE_PIN T17   IOSTANDARD LVCMOS33 } [get_ports rst_btn]
+set_property -dict {PACKAGE_PIN T17 IOSTANDARD LVCMOS33} [get_ports rst_btn]
 #set_property -dict { PACKAGE_PIN U17   IOSTANDARD LVCMOS33 } [get_ports btnD]
 
 
 ##Pmod Header JA
-set_property -dict { PACKAGE_PIN J1   IOSTANDARD LVCMOS33 } [get_ports spi_cs];#Sch name = JA1
+set_property -dict {PACKAGE_PIN J1 IOSTANDARD LVCMOS33} [get_ports spi_cs]
 #set_property -dict { PACKAGE_PIN L2   IOSTANDARD LVCMOS33 } [get_ports {JA[1]}];#Sch name = JA2
-set_property -dict { PACKAGE_PIN J2   IOSTANDARD LVCMOS33 } [get_ports spi_miso];#Sch name = JA3
-set_property -dict { PACKAGE_PIN G2   IOSTANDARD LVCMOS33 } [get_ports spi_sclk];#Sch name = JA4
+set_property -dict {PACKAGE_PIN J2 IOSTANDARD LVCMOS33} [get_ports spi_miso]
+set_property -dict {PACKAGE_PIN G2 IOSTANDARD LVCMOS33} [get_ports spi_sclk]
 #set_property -dict { PACKAGE_PIN H1   IOSTANDARD LVCMOS33 } [get_ports {JA[4]}];#Sch name = JA7
 #set_property -dict { PACKAGE_PIN K2   IOSTANDARD LVCMOS33 } [get_ports {JA[5]}];#Sch name = JA8
 #set_property -dict { PACKAGE_PIN H2   IOSTANDARD LVCMOS33 } [get_ports {JA[6]}];#Sch name = JA9
 #set_property -dict { PACKAGE_PIN G3   IOSTANDARD LVCMOS33 } [get_ports {JA[7]}];#Sch name = JA10
 
 ##Pmod Header JB
-set_property -dict { PACKAGE_PIN A14   IOSTANDARD LVCMOS33 } [get_ports uart_tx];#Sch name = JB1
+set_property -dict {PACKAGE_PIN A14 IOSTANDARD LVCMOS33} [get_ports uart_tx]
 #set_property -dict { PACKAGE_PIN A16   IOSTANDARD LVCMOS33 } [get_ports {JB[1]}];#Sch name = JB2
 #set_property -dict { PACKAGE_PIN B15   IOSTANDARD LVCMOS33 } [get_ports {JB[2]}];#Sch name = JB3
 #set_property -dict { PACKAGE_PIN B16   IOSTANDARD LVCMOS33 } [get_ports {JB[3]}];#Sch name = JB4
@@ -160,3 +158,4 @@ set_property CFGBVS VCCO [current_design]
 set_property BITSTREAM.GENERAL.COMPRESS TRUE [current_design]
 set_property BITSTREAM.CONFIG.CONFIGRATE 33 [current_design]
 set_property CONFIG_MODE SPIx4 [current_design]
+
